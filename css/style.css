@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/img/fondo6.jpg);
+    background-repeat: no-repeat;
+     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 40em;
+}
+.nav-bar{
+    display: grid;
+    grid-template-rows:auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5em;
+}
+.board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21em;
+    height: 21em;
+    display: grid;
+    
+    grid-template-columns: repeat(3, auto)  ;
+  
+  
+     row-gap: 1px;
+    column-gap: 1px; 
+
+   
+    
+  
+    
+  
+
+}
+h1{
+    color: rgb(2, 3, 4);
+}
+.card-player1{
+    width: 10em;
+    background-color: transparent;
+}
+.card-player2{
+    width: 10em;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+ .box{
+   width: 7em;
+   height: 7em;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+  background-image: url(/img/ficha.jpeg);
+    
+    border: 5px solid rgb(6, 6, 6);
+   
+} 
+/* .footer{
+    
+   
+    justify-content: space-around;
+    background-color: blue;
+ 
+}
+.player1{
+    
+    
+    background-color: blueviolet;
+}
+.player2{
+    
+    
+    background-color: yellowgreen;
+} */
