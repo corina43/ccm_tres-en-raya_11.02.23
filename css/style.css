@@ -34,7 +34,7 @@ body{
     grid-template-rows:auto;
     align-items: center;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: em;
 }
 .board{
     display: flex;
@@ -43,20 +43,8 @@ body{
     width: 21em;
     height: 21em;
     display: grid;
-    
     grid-template-columns: repeat(3, auto)  ;
-  
-  
-     row-gap: 0;
-    column-gap: 0; 
-
-   
-    
-  
-    
-  
-
-}
+  }
 h1{
     color: #f5ebf4;
     font-weight: bold;
@@ -67,6 +55,8 @@ h1{
 .card-player1{
     width: 10em;
     background-color: transparent;
+    justify-content: center;
+    align-items: center;
 }
 .card-player2{
     width: 10em;
@@ -83,5 +73,24 @@ h1{
     justify-content: center;
     background-image: url(/img/ficha.jpeg);
     border: 5px solid rgb(12, 5, 12, 1);
+    color: aliceblue;
+    font-weight: bolder;
    
+}
+.turn{
+    background-image: url(../img/ficha.jpeg);
+    height: 3em;
+    border-radius: 0,5em;
+    border: 1px solid black;
+    padding-bottom: 1px;
+    color: aliceblue;
+    font-weight: bold;
 } 
+/* @media only screen and (max-width: 767px) {
+    .card {
+      width: 90%;
+    }
+    .nav-bar header h1 {
+      font-size: 24px;
+    }
+  } */

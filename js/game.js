@@ -1,107 +1,104 @@
 
 
+let inputNamePlayer1 = sessionStorage.getItem("namePlayer1");
+let inputNamePlayer2 = sessionStorage.getItem("namePlayer2");
 
-var player1 = "X";
-  var player2 = "O";
-  var currentPlayer = player1;
-  var boxes = document.querySelectorAll('.box');
-  
-  for (var i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener('click', function(event) {
-      if (event.target.innerHTML === "") {
-        event.target.innerHTML = currentPlayer;
+document.getElementById("player1").innerHTML = inputNamePlayer1;
+document.getElementById("player2").innerHTML = inputNamePlayer2;
+
+let currentPlayer = "player1";
+let boxes = document.querySelectorAll(".box");
+
+for (let i = 0; i < boxes.length; i++) {
+  let active = "active" + i;
+  boxes[i].addEventListener("click", function () {
+    if (!this.innerHTML) {
+      if (currentPlayer === "player1") {
+        this.innerHTML = "X";
+        currentPlayer = "player2";
+        document.getElementById("player1").style.backgroundColor = "lightgray";
+        document.getElementById("player2").style.backgroundColor = "yellow";
+        changeTurn();
         checkWinner();
-        switchPlayer();
-      }
-    });
-  }
-  
-  function switchPlayer() {
-    if (currentPlayer === player1) {
-      currentPlayer = player2;
-    } else {
-      currentPlayer = player1;
-    }
-  }
-  
-  function checkWinner() {
-    if (
-      boxes[0].innerHTML === currentPlayer && 
-      boxes[1].innerHTML === currentPlayer && 
-      boxes[2].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[3].innerHTML === currentPlayer && 
-      boxes[4].innerHTML === currentPlayer && 
-      boxes[5].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[6].innerHTML === currentPlayer && 
-      boxes[7].innerHTML === currentPlayer && 
-      boxes[8].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[0].innerHTML === currentPlayer && 
-      boxes[3].innerHTML === currentPlayer && 
-      boxes[6].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[1].innerHTML === currentPlayer && 
-      boxes[4].innerHTML === currentPlayer && 
-      boxes[7].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[2].innerHTML === currentPlayer && 
-      boxes[5].innerHTML === currentPlayer && 
-      boxes[8].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[0].innerHTML === currentPlayer && 
-      boxes[4].innerHTML === currentPlayer && 
-      boxes[8].innerHTML === currentPlayer
-    ) {
-      alert("El jugador " + currentPlayer + " ha ganado!");
-      resetGame();
-    } else if (
-      boxes[2].innerHTML === currentPlayer && 
-      boxes[4].innerHTML === currentPlayer &&
-      boxes[6].innerHTML === currentPlayer 
-    )
-        alert("El jugador " + currentPlayer + " ha ganado!");
-        resetGame();
-  }
-  var turn = "player1"; // establece el turno inicial en player1
-var boxes = document.querySelectorAll(".box"); // selecciona todas las cajas
-
-for (var i = 0; i < boxes.length; i++) {
-  boxes[i].addEventListener("click", function(event) {
-    if (event.target.innerHTML === "") {
-      event.target.innerHTML = turn;
-      if (turn === "player1") {
-        turn = "player2";
       } else {
-        turn = "player1";
+        this.innerHTML = "O";
+        currentPlayer = "player1";
+        document.getElementById("player2").style.backgroundColor = "lightgray";
+        document.getElementById("player1").style.backgroundColor = "yellow";
+        changeTurn();
+        checkWinner();
       }
     }
   });
 }
 
-// // función para reiniciar el juego
-// document.querySelector("button[type='reset']").addEventListener("click", function() {
-//   for (var i = 0; i < boxes.length; i++) {
-//     boxes[i].innerHTML = "";
-//   }
-//   turn = "player1";
-// });
+let turn = 1;
+let winner = "";
+
+function changeTurn() {
+  if (turn === 1) {
+    document.getElementById("turn").innerHTML = `Turno de ${inputNamePlayer1}`;
+    turn = 2;
+  } else {
+    document.getElementById("turn").innerHTML = `Turno de ${inputNamePlayer2}`;
+    turn = 1;
+  }
+}
+
+function checkWinner(){
+  const board = Array.from(boxes).map(box => box.innerHTML);
+  console.log(board);
+
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  for (let i = 0; i < winningCombinations.length; i++) {
+    const [a, b, c] = winningCombinations[i];
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      declareWinner(board[a] === "X" ? inputNamePlayer1 : inputNamePlayer2);
+      return;
+    }
+  }
+}
+
+function declareWinner(player) {
+  winner = player;
+  document.getElementById("turn").innerHTML = `Ganador: ${winner}`;
+  boxes.forEach(box => {
+    box.removeEventListener("click", changeTurn);
+  });
+}
+// Obteniendo los elementos del HTML
+ //let resetButton = document.getElementById("#resetButton");
+// let startButton = document.querySelector("#startGame");
+
+
+// Función para resetear el juego
+function resetButton() {
+  // Código para resetear el juego
+}
+
+// Función para iniciar el juego
+function startGame() {
+  // Código para iniciar el juego
+}
+
+// Agregando eventos a los botones
+resetButton.addEventListener("click", resetButton);
+startButton.addEventListener("click", startGame);
+
+
+ 
+  
+    
+    
+
+
