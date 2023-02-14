@@ -1,11 +1,20 @@
+ 
 
 
-let inputNamePlayer1 = sessionStorage.getItem("namePlayer1");
-let inputNamePlayer2 = sessionStorage.getItem("namePlayer2");
+      
+const inputNamePlayer1 = sessionStorage.getItem("namePlayer1");
+const inputNamePlayer2 = sessionStorage.getItem("namePlayer2");
 
 document.getElementById("player1").innerHTML = inputNamePlayer1;
 document.getElementById("player2").innerHTML = inputNamePlayer2;
 
+
+// let namePlayer1 = 3;
+// let namePlayer2 = 3;
+let remainingPieces = {
+  player1: 3,
+  player2: 3,
+};
 let currentPlayer = "player1";
 let boxes = document.querySelectorAll(".box");
 
@@ -47,7 +56,6 @@ function changeTurn() {
 
 function checkWinner(){
   const board = Array.from(boxes).map(box => box.innerHTML);
-  console.log(board);
 
   const winningCombinations = [
     [0, 1, 2],
@@ -67,8 +75,12 @@ function checkWinner(){
       return;
     }
   }
-}
+  
+  if (board.every(box => box !== "")) {
+    declareDraw();
+  }
 
+}
 function declareWinner(player) {
   winner = player;
   document.getElementById("turn").innerHTML = `Ganador: ${winner}`;
@@ -77,11 +89,15 @@ function declareWinner(player) {
   });
 }
 
+function declareDraw() {
+  document.getElementById("turn").innerHTML = "Empate";
+  boxes.forEach(box => {
+    box.removeEventListener("click", changeTurn);
+  });
+}
 
-
- 
   
-    
-    
+
+
 
 

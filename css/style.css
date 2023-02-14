@@ -91,9 +91,12 @@ h1{
   height: 2.5em;
   text-align: center;
   gap: 5px;
-  
+  background-image: url(/img/ficha.jpeg);
+  color: aliceblue;
 } 
-
+.won{
+  background-color: green;
+}
 /* @media only screen and (max-width: 767px) {
     .card {
       width: 90%;
