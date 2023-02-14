@@ -76,24 +76,7 @@ function declareWinner(player) {
     box.removeEventListener("click", changeTurn);
   });
 }
-// Obteniendo los elementos del HTML
- //let resetButton = document.getElementById("#resetButton");
-// let startButton = document.querySelector("#startGame");
 
-
-// Función para resetear el juego
-function resetButton() {
-  // Código para resetear el juego
-}
-
-// Función para iniciar el juego
-function startGame() {
-  // Código para iniciar el juego
-}
-
-// Agregando eventos a los botones
-resetButton.addEventListener("click", resetButton);
-startButton.addEventListener("click", startGame);
 
 
  

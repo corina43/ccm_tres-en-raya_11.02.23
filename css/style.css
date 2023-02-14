@@ -86,6 +86,14 @@ h1{
     color: aliceblue;
     font-weight: bold;
 } 
+ .bg-warning{
+  width: 5em;
+  height: 2.5em;
+  text-align: center;
+  gap: 5px;
+  
+} 
+
 /* @media only screen and (max-width: 767px) {
     .card {
       width: 90%;
