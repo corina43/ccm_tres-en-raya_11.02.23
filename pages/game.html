@@ -36,10 +36,19 @@
   </div>
                         <br>
   <div class="col justify-content-center align-items-center d-flex">
-      <div class="col-3 "><button type="button " class="bg-warning" id="player1">player 1</button></div>
-      <!-- <div class="col-3 "><button type="button" onclick="resetButton"  id="resetButton" class="button_start  bg-warning ">RESET</button></div>
-      <div class="col-3 "><button type="button" onclick="startGame()" class="button_start  bg-warning "aria-pressed="true" id="startGame">PLAY</button></div> -->
-      <div class="col-3 "><button type="button" class="bg-warning" id="player2">player 2</button></div>
+    <!-- <div class="player" id="player1">
+      <h2>Player 1</h2>
+      <p>Fichas: <span id="player1-fichas">0</span></p>
+    </div>
+    
+    <div class="player" id="player2">
+      <h2>Player 2</h2>
+      <p>Fichas: <span id="player2-fichas">0</span></p>
+    </div> -->
+    
+       <div class="col-3 "><button type="button " class="bg-warning" id="player1">player 1</button></div>
+     
+      <div class="col-3 "><button type="button" class="bg-warning" id="player2">player 2</button></div> 
        </div>
                         <br>
   <div class="btn turn  col justify-content-center align-items-center d-flex" id="turn"></div>
@@ -49,6 +58,13 @@
     </div>     
 
     </div>
+    <dialog type="modal">
+			<h2></h2>
+			
+      <div id="game-result"></div>
+<button id="reset-button">Reiniciar Juego</button>
+
+		</dialog>
    <script src="../js/game.js"></script> 
 </body>
 </html>

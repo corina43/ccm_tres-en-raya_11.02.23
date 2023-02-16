@@ -97,6 +97,30 @@ h1{
 .won{
   background-color: green;
 }
+.player{
+  background-color: blueviolet;
+}
+dialog{
+  text-align: center;
+  min-width: 50vw;
+  background-color: rgba(240, 248, 255, 0.23);
+  padding: 5rem;
+  border: unset;
+}
+
+dialog::backdrop{
+  backdrop-filter: blur(3px);
+}
+
+dialog h2{
+  font-family: var(--font-family);
+  font-size: xx-large;
+}
+
+dialog button{
+  font-size: larger;
+  padding: 1rem;
+}
 /* @media only screen and (max-width: 767px) {
     .card {
       width: 90%;
