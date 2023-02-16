@@ -34,15 +34,21 @@ body{
     grid-template-rows:auto;
     align-items: center;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: em;
 }
 .board{
     width: 21em;
     height: 21em;
+<<<<<<< HEAD
     display: grid; 
     grid-template-columns: repeat(3, auto)  ;
 
 }
+=======
+    display: grid;
+    grid-template-columns: repeat(3, auto)  ;
+  }
+>>>>>>> 001e3b98f63aadb7fa57663087e7115fd4d8e3c7
 h1{
     color: #f5ebf4;
     font-weight: bold;
@@ -53,6 +59,8 @@ h1{
 .card-player1{
     width: 10em;
     background-color: transparent;
+    justify-content: center;
+    align-items: center;
 }
 .card-player2{
     width: 10em;
@@ -70,6 +78,7 @@ h1{
     color: aliceblue;
      background-image: url(/img/ficha.jpeg); 
     border: 5px solid rgb(12, 5, 12, 1);
+<<<<<<< HEAD
     box-shadow:
     inset 3px 5px 5px -1px rgba(141, 142, 143, 0.5), 
     inset -3px -3px 5px -1px rgba(0 0 0 / 90%),
@@ -108,3 +117,61 @@ dialog button{
     font-size: larger;
     padding: 1rem;
 }
+=======
+    color: aliceblue;
+    font-weight: bolder;
+   
+}
+.turn{
+    background-image: url(../img/ficha.jpeg);
+    height: 3em;
+    border-radius: 0,5em;
+    border: 1px solid black;
+    padding-bottom: 1px;
+    color: aliceblue;
+    font-weight: bold;
+} 
+ .bg-warning{
+  width: 5em;
+  height: 2.5em;
+  text-align: center;
+  gap: 5px;
+  background-image: url(/img/ficha.jpeg);
+  color: aliceblue;
+} 
+.won{
+  background-color: green;
+}
+.player{
+  background-color: blueviolet;
+}
+dialog{
+  text-align: center;
+  min-width: 50vw;
+  background-color: rgba(240, 248, 255, 0.23);
+  padding: 5rem;
+  border: unset;
+}
+
+dialog::backdrop{
+  backdrop-filter: blur(3px);
+}
+
+dialog h2{
+  font-family: var(--font-family);
+  font-size: xx-large;
+}
+
+dialog button{
+  font-size: larger;
+  padding: 1rem;
+}
+/* @media only screen and (max-width: 767px) {
+    .card {
+      width: 90%;
+    }
+    .nav-bar header h1 {
+      font-size: 24px;
+    }
+  } */
+>>>>>>> 001e3b98f63aadb7fa57663087e7115fd4d8e3c7
