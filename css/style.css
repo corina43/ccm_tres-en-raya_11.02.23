@@ -1,7 +1,9 @@
+
 html{
   margin: 0;
   padding: 0;
 }
+
 
 body{
   margin: 0;
@@ -17,47 +19,55 @@ body{
 
 
 }
-.container{
-  
-height: 30em;
-
-}
 .card{
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  width: 40em;
   height: 50em !important;
 }
-.navbar{
+.nav-bar{
   display: grid;
   grid-template-rows:auto;
   align-items: center;
   justify-content: center;
-  
+  margin-top: em;
 }
-.board{
-  display: flex;
+#board{
+  /* display: flex; */
+  
   justify-content: center;
   align-items: center;
   width: 21em;
   height: 21em;
-  display: grid;
+  font-weight: bold;
+  /* font-size: 8rem;
+  transition: 50ms ease-in-out; */
+  display: grid; 
+  
   grid-template-columns: repeat(3, auto)  ;
+
+
+   /* row-gap: 1px;
+  column-gap: 1px;  */
+
+ 
+  
+
+  
+
+
 }
 h1{
-  color: #f5ebf4;
-  font-weight: bold;
+  color: rgb(224, 229, 234);
 }
- .card-body{
+.card-body{
   height: 100%;
-  
-} 
+}
 .card-player1{
   width: 10em;
   background-color: transparent;
-  justify-content: center;
-  align-items: center;
 }
 .card-player2{
   width: 10em;
@@ -67,17 +77,18 @@ h1{
 }
 
 .box{
-  width: 7em;
-  height: 7em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(/img/ficha.jpeg);
-  border: 5px solid rgb(12, 5, 12, 1);
+  border: 1px solid black;
+   width: 100px;
+  height: 100px; 
   color: aliceblue;
-  font-weight: bolder;
- 
-}
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  /* vertical-align: middle; */
+  font-size: 50px;
+  cursor: pointer;
+  background-color: blueviolet;
+} 
 .turn{
   background-image: url(../img/ficha.jpeg);
   height: 3em;
@@ -86,39 +97,34 @@ h1{
   padding-bottom: 1px;
   color: aliceblue;
   font-weight: bold;
-} 
-.player{
-width: 5em;
-height: 2.5em;
-text-align: center;
-gap: 5px;
-background-image: url(/img/ficha.jpeg);
-color: aliceblue;
-} 
-.ganador{
-background-color: green;
 }
-/* .player{
-background-color: blueviolet;
-} */
+.ganador{
+  background-color: rgb(79, 122, 79);
+}
+
 dialog{
-text-align: center;
-min-width: 50vw;
-background-color: rgba(240, 248, 255, 0.23);
-padding: 5rem;
-border: unset;
+  text-align: center;
+  min-width: 50vw;
+  background-color: rgba(240, 248, 255, 0.23);
+  padding: 5rem;
+  border: unset;
 }
 
 dialog::backdrop{
-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
 dialog h2{
-font-family: var(--font-family);
-font-size: xx-large;
+  font-family: var(--font-family);
+  font-size: xx-large;
 }
 
 dialog button{
-font-size: larger;
-padding: 1rem;
+  font-size: larger;
+  padding: 1rem;
 }
+
+
+
+
+
