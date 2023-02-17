@@ -1,9 +1,20 @@
-const screen = document.querySelector(".screen");
+const bodyEl = document.querySelector("body");
 
-screen.addEventListener("click", function() {
-  screen.style.backgroundColor = "black";
-});
+bodyEl.addEventListener("mousemove", (event)=>{
+   const xPosition = event.offsetX
+   const ypoistion = event.offsetY
+   const spanEl = document.createElement("span");
 
-screen.addEventListener("mouseleave", function() {
-  screen.style.backgroundColor = "white";
-});
+   spanEl.style.left = xPosition + "px";
+   spanEl.style.top = ypoistion + "px";
+
+   const size = Math.random()*100;
+   spanEl.style.width = size + "px";
+   spanEl.style.height = size + "px";
+
+   bodyEl.appendChild(spanEl);
+
+   setTimeout(()=>{
+    spanEl.remove();
+   }, 3000);
+})
