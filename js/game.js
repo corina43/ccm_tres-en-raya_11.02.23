@@ -46,3 +46,45 @@ boxes.forEach((box, posicion) => {
     turno.innerHTML = "Turno de " + (estadoJuego === "player1" ? inputNamePlayer1 : inputNamePlayer2);
   });
 });
+
+// Añado un event listener al botón de reinicio del juego en el cuadro de diálogo
+modal.querySelector("button").addEventListener("click", () => {
+  // Se reinician las cajas del tablero y se desactiva el resaltado de posiciones ganadoras
+  boxes.forEach(box => {
+    box.textContent = "";
+    box.classList.toggle("ganador", false);
+  });
+  // Se cierra el cuadro de diálogo y se reinicia el juego
+  modal.close();
+  estadoJuego = "player1";
+  // Se actualiza el turno en la página con el jugador 1
+  
+});
+
+// Función que revisa si hay un ganador en el tablero actual
+function revisarSihayGanador(){
+  const tablero = Array.from(boxes).map(box => box.textContent);
+  console.log(tablero)
+  // Reviso filas
+  for (let i = 0; i < 9; i+=3) {
+      if(tablero[i] && tablero[i] === tablero[i+1] && tablero[i] === tablero[i+2]){
+          return ([i,i+1,i+2]);
+      }
+  }
+
+  // Reviso columnas
+  for (let i = 0; i < 3; i++) {
+      if(tablero[i] && tablero[i] === tablero[i+3] && tablero[i] === tablero[i+6]){
+          return ([i,i+3,i+6]);
+      }
+  }
+  // Reviso oblicuas
+  if(tablero[0] && tablero[0] === tablero[4] && tablero[0] === tablero[8]) return [0,4,8];
+  if(tablero[2] && tablero[2] === tablero[4] && tablero[2] === tablero[6]) return [2,4,6];
+
+  //Reviso empate
+  if(tablero.includes("")) return false;
+   return "empate"; 
+
+ 
+}
