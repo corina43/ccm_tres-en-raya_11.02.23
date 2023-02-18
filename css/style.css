@@ -9,9 +9,8 @@ body{
   margin: 0;
   padding: 0;
   background-color: black;
-  /*background-image: url(/img/fondo6.jpg);*/
   background-repeat: no-repeat;
-   background-size: cover;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,22 +42,9 @@ body{
   width: 21em;
   height: 21em;
   font-weight: bold;
-  /* font-size: 8rem;
-  transition: 50ms ease-in-out; */
   display: grid; 
-  
-   grid-template-columns: repeat(3, auto)  ; 
-
-
-   
+  grid-template-columns: repeat(3, auto)  ; 
   column-gap: 5px;  
-
- 
-  
-
-  
-
-
 }
 h1{
   color: rgb(224, 229, 234);
