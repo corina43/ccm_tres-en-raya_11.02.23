@@ -62,7 +62,7 @@ modal.querySelector("button").addEventListener("click", () => {
 });
 
 // Función que revisa si hay un ganador en el tablero actual
-function revisarSihayGanador(){
+function revisarSiHayGanador(){
   const tablero = Array.from(boxes).map(box => box.textContent);
   console.log(tablero)
   // Reviso filas
@@ -87,4 +87,14 @@ function revisarSihayGanador(){
    return "empate"; 
 
  
+}
+//Marco las posiciones ganadoras y muestro el modal de victoria
+function ganar(posicionesGanadoras){  
+  posicionesGanadoras.forEach(posicion => boxes[posicion].classList.toggle("ganador",true));
+  mostrarModal("Ganador  " + (estadoJuego === "player1" ? `${inputNamePlayer2}` : `${inputNamePlayer1}`));
+}
+function mostrarModal(texto){
+ textoModal.innerText = texto;
+ modal.showModal();
+ estadoJuego = "PAUSA";
 }
