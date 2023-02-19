@@ -98,3 +98,10 @@ function mostrarModal(texto){
  modal.showModal();
  estadoJuego = "PAUSA";
 }
+
+const partida = {
+ jugador1: inputNamePlayer1,
+ jugador2: inputNamePlayer2,
+ resultado: "ganado", // o "perdido" o "empate"
+ 
+};
