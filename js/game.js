@@ -105,3 +105,5 @@ const partida = {
  resultado: "ganado", // o "perdido" o "empate"
  
 };
+// Almacenar la partida
+localStorage.setItem("partida1", JSON.stringify(partida));

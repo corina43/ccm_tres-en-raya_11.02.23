@@ -11,7 +11,7 @@ partidas.forEach((partida, index) => {
     <span class="numero">${index + 1}.</span>
     <span class="jugadores">${partida.jugador1} vs ${partida.jugador2}</span>
     <span class="resultado">${partida.resultado}</span>
-    <span class="fecha">${partida.fecha.toLocaleDateString()}</span>
+    
   `;
   ranking.appendChild(elemento);
 });
