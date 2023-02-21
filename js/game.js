@@ -27,19 +27,19 @@ boxes.forEach((box, posicion) => {
     if (estadoJuego === "PAUSA") return;
     // Si la caja ya está ocupada, no se permite hacer jugadas
     if (box.textContent !== "") return;
-    // Si la caja está libre, se coloca la ficha correspondiente al jugador actual
+    // Si la caja está libre, se coloca la ficha correspondiente al jugador player1 
     box.textContent = estadoJuego === "player1" ? x : o;
     // Se cambia al siguiente jugador
     estadoJuego = estadoJuego === "player1" ? "player2" : "player1";
     // Se revisa si hay un ganador en la jugada actual
     const posicionGanadora = revisarSiHayGanador();
     if (Array.isArray(posicionGanadora)) {
-      // Si hay un ganador, se resaltan las posiciones ganadoras y se muestra el modal de victoria
+      // Si hay un ganador, se resaltan las posiciones ganadoras y se muestra en el modal 
       ganar(posicionGanadora);
       return;
     }
     if (posicionGanadora === "empate") {
-      // Si hay empate, se muestra el modal correspondiente
+      // Si hay empate, se muestra el modal 
       mostrarModal("Empate");
     }
     // Se actualiza el turno en la página con el jugador actual
@@ -88,7 +88,7 @@ function revisarSiHayGanador(){
 
  
 }
-//Marco las posiciones ganadoras y muestro el modal de victoria
+//Marco las posiciones ganadoras y muestro en el modal
 function ganar(posicionesGanadoras){  
   posicionesGanadoras.forEach(posicion => boxes[posicion].classList.toggle("ganador",true));
   mostrarModal("Ganador  " + (estadoJuego === "player1" ? `${inputNamePlayer2}` : `${inputNamePlayer1}`));
