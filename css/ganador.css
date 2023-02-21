@@ -41,19 +41,6 @@ a{
     overflow: hidden;
 }
 
-
-
- #message {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
- #winner{
-    font-size: calc(3 rem + 4vw);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-} 
 a{
     position: absolute;
     top: 50%;
