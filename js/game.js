@@ -57,7 +57,7 @@
       
         //Reviso empate
         if(tablero.includes("")) return false;
-        return ;
+        return 'empate';
         }
       
       function ganar(posicionesGanadoras){  
