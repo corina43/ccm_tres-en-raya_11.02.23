@@ -7,7 +7,7 @@ body{
     cursor: pointer;
 }
 span{
-    background: url(/img/o1.jpg);
+    background: url(../img/o1-removebg-preview.png);
     width: 100px;
     height: 100px;
     position: absolute;
