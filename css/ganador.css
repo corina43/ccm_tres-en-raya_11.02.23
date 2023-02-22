@@ -15,7 +15,7 @@ body{
     align-items: center;
     align-content: center;
 } 
- #titulo{
+ #title{
      height: 15vh;
     display: flex;
     flex-direction: row; 
@@ -38,7 +38,7 @@ body{
     align-items: center;
     flex-direction: column;
 }
-  /* #winner-container{
+   #winner-container{
     font-size: calc(3 rem + 4vw);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #00072f;
@@ -46,7 +46,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}   */
+}   
 button{
     position: absolute;
     top: 50%;

@@ -2,9 +2,9 @@ const nombreGanador = sessionStorage.getItem("winner");
 const huboEmpate = sessionStorage.getItem("draw") === "true";
 
 // Obtener los elementos del DOM necesarios
-const titulo = document.getElementById("titulo");
+const titulo = document.getElementById("title");
 const mensaje = document.getElementById("message");
-const botonJugarOtraVez = document.getElementById("jugar-otra-vez");
+const botonPlayAgain = document.getElementById("play-again");
 
 // Configurar el título y mensaje dependiendo de si hubo un ganador o empate
 if (huboEmpate) {
@@ -16,7 +16,7 @@ if (huboEmpate) {
 }
 
 // Agregar un listener al botón de jugar otra vez para redirigir al usuario al inicio del juego
-botonJugarOtraVez.addEventListener("click", () => {
+botonPlayAgain.addEventListener("click", () => {
   sessionStorage.clear();
   window.location.href = "../pages/select.html";
 });

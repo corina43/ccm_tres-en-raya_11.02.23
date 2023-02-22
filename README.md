@@ -27,7 +27,7 @@ Fines del proyecto:
 
 Proyecto educativo
 
-Autor
+Autor:
 Corina Maria Ciorpac
 
 
