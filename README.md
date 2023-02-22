@@ -39,7 +39,7 @@ Estructura de la página
 
 Página inicio
 
-Screenshot_33
+<img src="./img/Screenshot_33"></img>
 
 Select players
 
