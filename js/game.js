@@ -38,7 +38,7 @@ boxes.forEach((box, posicion) => {
     // Verificar si hay un ganador
     const posicionGanadora = revisarSiHayGanador();
     if (Array.isArray(posicionGanadora)) {
-      // Si hay un
+      
       // Marcar las celdas ganadoras con una clase 'win'
       boxes[posicionGanadora[0]].classList.add("win");
       boxes[posicionGanadora[1]].classList.add("win");
