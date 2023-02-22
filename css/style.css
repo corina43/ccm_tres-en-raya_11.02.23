@@ -4,7 +4,6 @@ html{
   padding: 0;
 }
 
-
 body{
   margin: 0;
   padding: 0;
@@ -17,7 +16,12 @@ body{
   height: 100%;
 }
 
+.container{
+  padding: 0%;
+  height: 100%;
+}
 .card{
+  padding: 0%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +51,8 @@ h1{
   color: rgb(234, 224, 233);
 }
 .card-body{
-  height: 20vw;
+  padding: 0%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
