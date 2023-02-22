@@ -1,23 +1,23 @@
-const winner = sessionStorage.getItem("winner");
-      const isDraw = sessionStorage.getItem("isDraw");
-      const namePlayer1 = sessionStorage.getItem("namePlayer1");
-      const namePlayer2 = sessionStorage.getItem("namePlayer2");
-      
-      document.getElementById("winner").innerHTML = winner;
-      document.getElementById("player1").innerHTML = namePlayer1;
-      document.getElementById("player2").innerHTML = namePlayer2;
-      
-    //   if (winner) {
-    //       // Si hay un ganador, mostramos su nombre en el título
-    //       document.querySelector("h1").textContent = `¡Felicidades ${winner}! ¡Has ganado!`;
-    //   } else if (isDraw) {
-    //       // Si hubo empate, mostramos un mensaje indicando que fue un empate
-    //       document.querySelector("h1").textContent = "¡Es un empate!";
-    //   }
-      
-      // Agregamos un listener al botón para que reinicie el juego
-      document.querySelector("button").addEventListener("click", () => {
-          sessionStorage.clear();
-          window.location.href = "../pages/game.html";
-      });
+const nombreGanador = sessionStorage.getItem("winner");
+const huboEmpate = sessionStorage.getItem("draw") === "true";
+
+// Obtener los elementos del DOM necesarios
+const titulo = document.getElementById("titulo");
+const mensaje = document.getElementById("message");
+const botonJugarOtraVez = document.getElementById("jugar-otra-vez");
+
+// Configurar el título y mensaje dependiendo de si hubo un ganador o empate
+if (huboEmpate) {
+  titulo.innerHTML = "¡Empate!";
+  mensaje.innerHTML = "No hubo ganador en esta partida.";
+} else {
+  titulo.innerHTML = "¡" + nombreGanador + " ganó!";
+  mensaje.innerHTML = "¡Felicitaciones " + nombreGanador + "!";
+}
+
+// Agregar un listener al botón de jugar otra vez para redirigir al usuario al inicio del juego
+botonJugarOtraVez.addEventListener("click", () => {
+  sessionStorage.clear();
+  window.location.href = "../pages/select.html";
+});
       

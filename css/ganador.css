@@ -7,27 +7,52 @@ body{
     cursor: pointer;
 }
 
-
-
-
-
-#message {
-    height: 70vh;
+ span{
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
+} 
+ #titulo{
+     height: 15vh;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+} 
+
+#message{
+    
+    height: 10vh;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+} 
+#play-again-message {
+    height: 5vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
- #winner{
+  /* #winner-container{
     font-size: calc(3 rem + 4vw);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-} 
-a{
+    color: #00072f;
+    height: 70vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   */
+button{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate( -50%, -50%);
-    width: 160px;
+    width: 260px;
     height: 40px;
     background: #00072f;
     text-align: center;
@@ -41,24 +66,7 @@ a{
     overflow: hidden;
 }
 
-a{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate( -50%, -50%);
-    width: 160px;
-    height: 40px;
-    background: #00072f;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 40px;
-    color: #555;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 3px;
-    overflow: hidden;
-}
+
 
 
 

@@ -2,8 +2,15 @@ body{
     background-color: black;
     display: flex;
     justify-content: center;
-    margin-top: 10em;
+    margin-top: 15em; 
+    padding: 0;
 }
+.main-playerselect{
+    padding: 0
+}
+/* .container{
+    padding: 0;
+} */
 .card{
     color: #db03d4;
     text-align: center;
