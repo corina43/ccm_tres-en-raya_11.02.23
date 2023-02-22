@@ -1,79 +1,104 @@
-      const inputNamePlayer1 = sessionStorage.getItem("namePlayer1");
-      const inputNamePlayer2 = sessionStorage.getItem("namePlayer2");
-      
-      document.getElementById("player1").innerHTML = inputNamePlayer1;
-      document.getElementById("player2").innerHTML = inputNamePlayer2;
-      
-      // Caracteres para el tablero
-      const x = "✖";
-      const o = "〇";
-      
-      // Elementos de la página
-      const boxes = document.querySelectorAll(".box");
-      let estadoJuego = "player1"; // player1 | player2 | PAUSA
-      
-      const turno = document.getElementById("turn");
-      turno.innerHTML = "Turno de " + inputNamePlayer1;
-      
-      boxes.forEach((box, posicion) => {
-        box.addEventListener("click", () => {
-          if (estadoJuego === "PAUSA") return;
-          if (box.textContent !== "") return;
-          box.textContent = estadoJuego === "player1" ? x : o;
-          estadoJuego = estadoJuego === "player1" ? "player2" : "player1";
-          const posicionGanadora = revisarSiHayGanador();
-          if (Array.isArray(posicionGanadora)) {
-            ganar(posicionGanadora);
-            return;
-          }
-          if (posicionGanadora === "empate") {
-            declareDrawOrChange();
-            return;
-          }
-          turno.innerHTML = "Turno de " + (estadoJuego === "player1" ? inputNamePlayer1 : inputNamePlayer2);
-        });
-      });
+  // Obtener los nombres de los jugadores de la sesión anterior
+const inputNamePlayer1 = sessionStorage.getItem("namePlayer1");
+const inputNamePlayer2 = sessionStorage.getItem("namePlayer2");
 
-      
-      function revisarSiHayGanador(){
-        const tablero = Array.from(boxes).map(box => box.textContent);
-  
-        // Reviso filas
-        for (let i = 0; i < 9; i+=3) {
-            if(tablero[i] && tablero[i] === tablero[i+1] && tablero[i] === tablero[i+2]){
-                return ([i,i+1,i+2]);
-            }
-        }
-      
-        // Reviso columnas
-        for (let i = 0; i < 3; i++) {
-            if(tablero[i] && tablero[i] === tablero[i+3] && tablero[i] === tablero[i+6]){
-                return ([i,i+3,i+6]);
-            }
-        }
-        // Reviso oblicuas
-        if(tablero[0] && tablero[0] === tablero[4] && tablero[0] === tablero[8]) return [0,4,8];
-        if(tablero[2] && tablero[2] === tablero[4] && tablero[2] === tablero[6]) return [2,4,6];
-      
-        //Reviso empate
-        if(tablero.includes("")) return false;
-        return 'empate';
-        }
-      
-      function ganar(posicionesGanadoras){  
-        posicionesGanadoras.forEach(posicion => boxes[posicion].classList.toggle("winner",true));
-        const winner = estadoJuego === "player1" ? inputNamePlayer2 : inputNamePlayer1;
+// Mostrar los nombres de los jugadores en la página
+document.getElementById("player1").innerHTML = inputNamePlayer1;
+document.getElementById("player2").innerHTML = inputNamePlayer2;
 
-        declareWinner(winner);
-      }
-      
-      function declareWinner(winner) {
-        sessionStorage.setItem("winner", winner);
-      
-        window.location.href = "../pages/ganador.html";
-      }
-      
-      function declareDrawOrChange() {
-        sessionStorage.setItem("isDraw", "true");
-        window.location.href = "../pages/ganador.html";
-      }
+// Definir caracteres para el tablero
+const x = "✖";
+const o = "〇";
+
+// Seleccionar todas las celdas del tablero
+const boxes = document.querySelectorAll(".box");
+
+// Estado del juego: player1 | player2 | PAUSA
+let estadoJuego = "player1";
+
+// Mostrar el turno del jugador actual en la página
+const turno = document.getElementById("turn");
+turno.innerHTML = "Turno de " + inputNamePlayer1;
+
+// Agregar un evento click a cada celda del tablero
+boxes.forEach((box, posicion) => {
+  box.addEventListener("click", () => {
+    // Si el juego está en pausa, no hacer nada
+    if (estadoJuego === "PAUSA") return;
+   
+    // Si la celda ya tiene un valor, no hacer nada
+    if (box.textContent !== "") return;
+   
+    // Realizar la jugada correspondiente (marcar la celda con x u o)
+    box.textContent = estadoJuego === "player1" ? x : o;
+   
+    // Cambiar el turno al otro jugador
+    estadoJuego = estadoJuego === "player1" ? "player2" : "player1";
+   
+    // Verificar si hay un ganador
+    const posicionGanadora = revisarSiHayGanador();
+    if (Array.isArray(posicionGanadora)) {
+      // Si hay un
+      // Marcar las celdas ganadoras con una clase 'win'
+      boxes[posicionGanadora[0]].classList.add("win");
+      boxes[posicionGanadora[1]].classList.add("win");
+      boxes[posicionGanadora[2]].classList.add("win");
+     
+      // Guardar el nombre del ganador en la API de almacenamiento web
+      const nombreGanador = estadoJuego === "player1" ? inputNamePlayer2 : inputNamePlayer1;
+      sessionStorage.setItem("winner", nombreGanador);
+     
+      // Redirigir al jugador a la página de resultado del juego
+      window.location.href = "../pages/ganador.html";
+    } else if (revisarSiHayEmpate()) {
+      // Si hay empate, declararlo y guardar la información en la API de almacenamiento web
+      declareDrawOrChange("Empate!");
+      sessionStorage.setItem("winner", "Empate");
+      sessionStorage.setItem("draw", "true");
+     
+      // Redirigir al jugador a la página de resultado del juego
+      window.location.href = "../pages/ganador.html";
+    } else {
+      // Si no hay ganador ni empate, cambiar el turno en la página
+      turno.innerHTML = "Turno de " + (estadoJuego === "player1" ? inputNamePlayer1 : inputNamePlayer2);
+    }
+  });
+});
+
+// Función que revisa si hay un ganador
+function revisarSiHayGanador() {
+  const combinacionesGanadoras = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+ 
+  for (let combinacion of combinacionesGanadoras) {
+    if (boxes[combinacion[0]].textContent === boxes[combinacion[1]].textContent &&
+        boxes[combinacion[1]].textContent === boxes[combinacion[2]].textContent &&
+        boxes[combinacion[0]].textContent !== "") {
+      // Devolver la combinación ganadora
+      return combinacion;
+    }
+  }
+  // Si no hay ganador, devolver false
+  return false;
+}
+
+// Función que revisa si hay empate
+function revisarSiHayEmpate() {
+  return [...boxes].every((box) => box.textContent !== "");
+}
+
+// Función que declara el empate o el cambio de turno
+function declareDrawOrChange(message) {
+  turno.innerHTML = message;
+  setTimeout(() => {
+    turno.innerHTML = "Turno de " + (estadoJuego === "player1" ? inputNamePlayer1 : inputNamePlayer2);
+  }, 1000);
+}
