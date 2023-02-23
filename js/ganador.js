@@ -12,7 +12,7 @@ if (huboEmpate) {
   mensaje.innerHTML = "No hubo ganador en esta partida.";
 } else {
   titulo.innerHTML = "¡" + nombreGanador + " ganó!";
-  mensaje.innerHTML = "¡Felicitaciones " + nombreGanador + "!";
+  mensaje.innerHTML = "¡Felicidades " + nombreGanador + "!";
 }
 
 // Agregar un listener al botón de jugar otra vez para redirigir al usuario al inicio del juego

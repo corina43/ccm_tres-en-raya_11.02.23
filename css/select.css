@@ -6,7 +6,9 @@ body{
     padding: 0;
 }
 .main-playerselect{
-    padding: 0
+    padding: 0;
+    flex-direction: column;
+   
 }
 
 .card{
