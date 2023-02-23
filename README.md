@@ -42,19 +42,20 @@ Página inicio
 
 ![Screenshot_33](https://user-images.githubusercontent.com/121670547/220856496-b6dfecbb-7aab-4476-9b0d-02b6dd08d398.png)
 
+
+
 Select players
+
+
 
 ![Screenshot_34](https://user-images.githubusercontent.com/121670547/220856659-3f2256d1-09fc-4f5d-b7fa-77a5af7e363e.png)
 
 
 Game
 
+
+
 ![Screenshot_35](https://user-images.githubusercontent.com/121670547/220856818-8d1e8908-7524-4a54-912b-6519c4a11c05.png)
-
-
-
-
-![Screenshot_36](https://user-images.githubusercontent.com/121670547/220856875-6a7ca02d-0019-4dcc-9e8a-4995be3f2829.png)
 
 
 
